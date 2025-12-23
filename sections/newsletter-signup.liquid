@@ -27,7 +27,8 @@
     </div>
 
     <div class="newsletter-form-wrapper">
-      {% form 'customer', class: 'newsletter-form' %}
+      {% form 'customer'
+        , class: 'newsletter-form' %}
         {% if form.posted_successfully? %}
           <p class="newsletter-success">
             {{ section.settings.success_message }}
@@ -46,15 +47,20 @@
               placeholder="{{ section.settings.placeholder }}"
               autocorrect="off"
               autocapitalize="off"
-              required
-            >
+              required>
 
-            {%- comment -%}
-              Mark this signup as marketing so Shopify syncs it as a subscriber,
-              and Klaviyo can ingest it via the native Shopify integration.[web:76][web:80]
-            {%- endcomment -%}
-            <input type="hidden" name="contact[tags]" value="newsletter">
-            <input type="hidden" name="contact[accepts_marketing]" value="true">
+              {% comment %} 
+                Mark this signup as marketing so Shopify syncs it as a subscriber, 
+                and Klaviyo can ingest it via the native Shopify integration.[web:76][web:80]
+              {% endcomment %}
+            <input
+              type="hidden"
+              name="contact[tags]"
+              value="newsletter">
+            <input
+              type="hidden"
+              name="contact[accepts_marketing]"
+              value="true">
 
             <button type="submit" class="btn newsletter-button">
               {{ section.settings.button_label }}
@@ -209,82 +215,74 @@
 {% endstylesheet %}
 
 {% schema %}
-{
-  "name": "Newsletter signup",
-  "settings": [
-    {
-      "type": "text",
-      "id": "kicker",
-      "label": "Eyebrow text",
-      "default": "Join the list"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Save up to 20% on your first meal plan"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Get weekly menus, nutrition tips, and early access to promos."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_bullets",
-      "label": "Show bullet list",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "bullet_1",
-      "label": "Bullet 1",
-      "default": "Fresh, ready-to-eat chef meals"
-    },
-    {
-      "type": "text",
-      "id": "bullet_2",
-      "label": "Bullet 2",
-      "default": "Nutritionist-approved menus"
-    },
-    {
-      "type": "text",
-      "id": "bullet_3",
-      "label": "Bullet 3",
-      "default": "Exclusive subscriber-only offers"
-    },
-    {
-      "type": "text",
-      "id": "placeholder",
-      "label": "Email placeholder",
-      "default": "Enter your email"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "Get 20% off"
-    },
-    {
-      "type": "text",
-      "id": "success_message",
-      "label": "Success message",
-      "default": "Thanks for subscribing! Check your inbox for your welcome email."
-    },
-    {
-      "type": "textarea",
-      "id": "note",
-      "label": "Small print / note",
-      "default": "By subscribing, you agree to receive marketing emails. You can unsubscribe at any time."
-    }
-  ],
-  "presets": [
-    {
-      "name": "Newsletter signup",
-      "category": "Promotional"
-    }
-  ]
-}
-
+  {
+    "name": "Newsletter signup",
+    "settings": [
+      {
+        "type": "text",
+        "id": "kicker",
+        "label": "Eyebrow text",
+        "default": "Join the list"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Save up to 20% on your first meal plan"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Get weekly menus, nutrition tips, and early access to promos."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_bullets",
+        "label": "Show bullet list",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "bullet_1",
+        "label": "Bullet 1",
+        "default": "Fresh, ready-to-eat chef meals"
+      }, {
+        "type": "text",
+        "id": "bullet_2",
+        "label": "Bullet 2",
+        "default": "Nutritionist-approved menus"
+      }, {
+        "type": "text",
+        "id": "bullet_3",
+        "label": "Bullet 3",
+        "default": "Exclusive subscriber-only offers"
+      }, {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Email placeholder",
+        "default": "Enter your email"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Get 20% off"
+      }, {
+        "type": "text",
+        "id": "success_message",
+        "label": "Success message",
+        "default": "Thanks for subscribing! Check your inbox for your welcome email."
+      }, {
+        "type": "textarea",
+        "id": "note",
+        "label": "Small print / note",
+        "default": "By subscribing, you agree to receive marketing emails. You can unsubscribe at any time."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Newsletter signup",
+        "category": "Promotional"
+      }
+    ]
+  }
 {% endschema %}

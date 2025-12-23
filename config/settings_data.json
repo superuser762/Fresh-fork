@@ -1,14 +1,153 @@
 {
-  "current": {
-    "sections": {},
-    "content_for_index": [],
-    "settings": {}
-  },
+  "current": "default",
   "presets": {
-    "Default": {
-      "sections": {},
-      "content_for_index": [],
-      "settings": {}
+    "default": {
+      "color_primary": "#5a7d4a",
+      "color_primary_hover": "#4a6840",
+      "color_text": "#1f2121",
+      "color_text_light": "#666666",
+      "color_background": "#ffffff",
+      "color_background_alt": "#f9f7f2",
+      "color_border": "#e8e8e8",
+      "font_body": "sans-serif",
+      "font_heading": "sans-serif",
+      "font_size_base": 16,
+      "spacing_base": 16,
+      "show_announcement": false,
+      "announcement_text": "Free shipping on orders over $50",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_announcement": false,
+            "announcement_text": "Fresh, ready-to-eat meals delivered to your door."
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        },
+        "newsletter-signup": {
+          "type": "newsletter-signup",
+          "settings": {
+            "kicker": "Join the list",
+            "heading": "Save up to 20% on your first meal plan",
+            "subheading": "Get weekly menus, nutrition tips, and early access to promos.",
+            "show_bullets": true,
+            "bullet_1": "Fresh, ready-to-eat chef meals",
+            "bullet_2": "Nutritionist-approved menus",
+            "bullet_3": "Exclusive subscriber-only offers",
+            "placeholder": "Enter your email",
+            "button_label": "Get 20% off",
+            "success_message": "Thanks for subscribing! Check your inbox for your welcome email.",
+            "note": "By subscribing, you agree to receive marketing emails. You can unsubscribe at any time."
+          }
+        },
+        "home-hero": {
+          "type": "hero-banner",
+          "settings": {
+            "image": "",
+            "title": "Healthy Meals, Delivered Fresh",
+            "subtitle": "Chef-crafted, ready-to-eat meals delivered to your door.",
+            "button_text": "Get started",
+            "button_url": "/collections/all",
+            "height": 500,
+            "overlay_opacity": 0.3,
+            "text_alignment": "left"
+          }
+        },
+        "home-features": {
+          "type": "features",
+          "blocks": {
+            "feature-1": {
+              "type": "feature",
+              "settings": {
+                "icon": "",
+                "title": "Fresh ingredients",
+                "description": "Seasonal produce and quality proteins in every bowl."
+              }
+            },
+            "feature-2": {
+              "type": "feature",
+              "settings": {
+                "icon": "",
+                "title": "Dietitian-approved",
+                "description": "Balanced macros to support your health goals."
+              }
+            },
+            "feature-3": {
+              "type": "feature",
+              "settings": {
+                "icon": "",
+                "title": "Ready in minutes",
+                "description": "Heat, eat, and enjoy—no prep, no cleanup."
+              }
+            }
+          },
+          "block_order": ["feature-1", "feature-2", "feature-3"],
+          "settings": {}
+        },
+        "home-grid": {
+          "type": "product-grid",
+          "settings": {
+            "title": "Browse our meals",
+            "show_filters": true
+          }
+        },
+        "home-testimonials": {
+          "type": "testimonials",
+          "blocks": {
+            "t1": {
+              "type": "testimonial",
+              "settings": {
+                "rating": 5,
+                "testimonial": "These meals have completely simplified my weekday dinners.",
+                "author": "Alex R."
+              }
+            },
+            "t2": {
+              "type": "testimonial",
+              "settings": {
+                "rating": 5,
+                "testimonial": "Portions are perfect and everything tastes super fresh.",
+                "author": "Maria L."
+              }
+            },
+            "t3": {
+              "type": "testimonial",
+              "settings": {
+                "rating": 5,
+                "testimonial": "I hit my nutrition goals without spending hours in the kitchen.",
+                "author": "Chris D."
+              }
+            }
+          },
+          "block_order": ["t1", "t2", "t3"],
+          "settings": {
+            "title": "Customer reviews",
+            "subtitle": "Real feedback from real customers"
+          }
+        },
+        "home-subscription-cta": {
+          "type": "subscription-cta",
+          "settings": {
+            "bg_image": "",
+            "title": "Save up to 20% with a meal plan",
+            "description": "Subscribe to weekly deliveries and never worry about \"what's for dinner\" again.",
+            "button_text": "See plans",
+            "link_url": "/pages/meal-plans"
+          }
+        }
+      },
+      "content_for_index": [
+        "home-hero",
+        "home-features",
+        "home-grid",
+        "home-subscription-cta",
+        "home-testimonials",
+        "newsletter-signup"
+      ]
     }
   }
 }
+
