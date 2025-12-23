@@ -1,0 +1,121 @@
+<section class="hero-banner" style="background-image: url('{{ section.settings.image | image_url: width: 1920 }}'); background-position: center; background-size: cover;">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <h1 class="hero-title">{{ section.settings.title }}</h1>
+      <p class="hero-subtitle">{{ section.settings.subtitle }}</p>
+      {% if section.settings.button_text %}
+        <a href="{{ section.settings.button_url }}" class="btn btn-hero">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .hero-banner {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:  rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: white;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner { height: 400px; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Welcome to Fresh Meals"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Chef-crafted, ready-to-eat meals delivered to your door"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Height",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 0.8,
+      "step": 0.1,
+      "label": "Overlay Opacity",
+      "default": 0.3
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+<section class="features-section">
+  <div class="container">
+    <div class="features-grid">
+      {% for block in section.blocks %}
+        <div class="feature-card">
+          {% if block.settings.icon %}
+            <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="" width="100" height="100" class="feature-icon" loading="lazy">
+          {% endif %}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .features-section { padding: 4rem 0; background: var(--color-background-alt); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-icon { max-width: 80px; margin-bottom: 1rem; }
+  .feature-card h3 { margin-bottom: 1rem; }
+
+  @media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Features",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Description goes here"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

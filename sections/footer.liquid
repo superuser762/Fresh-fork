@@ -1,0 +1,105 @@
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-column">
+      <h4>{{ shop.name }}</h4>
+      <p>{{ shop.description }}</p>
+      <div class="social-links">
+        {% if settings.social_facebook %}
+          <a href="{{ settings.social_facebook }}" title="Facebook">f</a>
+        {% endif %}
+        {% if settings.social_instagram %}
+          <a href="{{ settings.social_instagram }}" title="Instagram">📷</a>
+        {% endif %}
+        {% if settings.social_twitter %}
+          <a href="{{ settings.social_twitter }}" title="Twitter">𝕏</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        {% for link in linklists.footer.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Customer Service</h4>
+      <ul>
+        <li><a href="{{ routes.account_url }}">My Account</a></li>
+        <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/policies/refund-policy">Returns</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column newsletter">
+      <h4>Newsletter</h4>
+      <p>Sign up for weekly meal prep tips and exclusive discounts.</p>
+      <form action="{{ routes.cart_url }}" method="post" class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+  </div>
+</footer>
+
+{% stylesheet %}
+  .site-footer {
+    background: var(--color-text);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-column h4 { margin-bottom: 1rem; }
+  .footer-column ul { list-style: none; padding: 0; margin: 0; }
+  .footer-column a { color: rgba(255, 255, 255, 0.8); }
+  .footer-column a:hover { color: white; }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .newsletter-form button {
+    border-radius: 0 4px 4px 0;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; }
+  }
+{% endstylesheet %}

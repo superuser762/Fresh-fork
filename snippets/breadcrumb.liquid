@@ -1,0 +1,42 @@
+{% if request.page_type == 'product' %}
+  <nav class="breadcrumb" aria-label="Breadcrumbs">
+    <a href="/">Home</a>
+    {% if collection %}
+      <a href="{{ collection.url }}">{{ collection.title }}</a>
+    {% endif %}
+    <span>{{ product.title }}</span>
+  </nav>
+{% endif %}
+
+{% stylesheet %}
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: var(--color-text-light);
+  }
+
+  .breadcrumb a::after,
+  .breadcrumb span::after {
+    content: "/";
+    margin: 0 0.5rem;
+    color: var(--color-border);
+  }
+
+  .breadcrumb span:last-child::after {
+    display: none;
+  }
+{% endstylesheet %}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="{{ checkout.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ checkout.shop_name }} – Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ checkout.stylesheets }}
+    {{ checkout.scripts }}
+
+    {% comment %}
+      Optional: simple brand overrides – colors and fonts
+      These should roughly match your theme settings.
+    {% endcomment %}
+    <style>
+      :root {
+        --color-primary: #5a7d4a;
+        --color-primary-hover: #4a6840;
+        --radius-base: 6px;
+      }
+
+      .content-box,
+      .order-summary__sections,
+      .field__input,
+      .btn {
+        border-radius: var(--radius-base) !important;
+      }
+
+      .btn,
+      .btn--primary {
+        background-color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+      }
+
+      .btn:hover,
+      .btn--primary:hover {
+        background-color: var(--color-primary-hover) !important;
+        border-color: var(--color-primary-hover) !important;
+      }
+
+      .logo__image {
+        max-height: 48px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    {{ content_for_header }}
+
+    {% comment %}
+      Main Shopify checkout markup.
+      Do NOT remove {{ content_for_layout }}.
+    {% endcomment %}
+    {{ content_for_layout }}
+
+    {% comment %}
+      Example: small reassurance bar under the steps.
+      Wrap in a setting if you want a kill-switch (Plus best practice).[web:54]
+    {% endcomment %}
+    <script>
+      document.addEventListener('page:load', function () {
+        var node = document.querySelector('.main__content');
+        if (!node || document.getElementById('checkout-benefits')) return;
+
+        var bar = document.createElement('div');
+        bar.id = 'checkout-benefits';
+        bar.style.marginTop = '1rem';
+        bar.style.padding = '0.75rem 1rem';
+        bar.style.background = '#f9f7f2';
+        bar.style.borderRadius = '6px';
+        bar.style.fontSize = '0.9rem';
+        bar.innerHTML =
+          '<strong>Fresh Meals Promise:</strong> Chef-prepared, chilled for freshness, never frozen.';
+
+        node.insertBefore(bar, node.firstChild);
+      });
+    </script>
+
+    {{ content_for_footer }}
+  </body>
+</html>

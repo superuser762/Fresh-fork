@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Fresh Fork",
+    "theme_name": "Healthy Meals",
+    "theme_version": "1.0.0",
+    "theme_author": "Rock Bottom Designs",
+    "theme_documentation_url": "https://example.com/docs",
+    "theme_support_url": "https://example.com/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#5a7d4a"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_hover",
+        "label": "Primary Color Hover",
+        "default": "#4a6840"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#1f2121"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Secondary Text Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_background_alt",
+        "label": "Secondary Background",
+        "default": "#f9f7f2"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border Color",
+        "default": "#e8e8e8"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "range",
+        "id": "font_size_base",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Base Font Size",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Spacing",
+    "settings": [
+      {
+        "type": "range",
+        "id": "spacing_base",
+        "min": 8,
+        "max": 32,
+        "step": 2,
+        "unit": "px",
+        "label": "Base Spacing Unit",
+        "default": 16
+      }
+    ]
+  }
+]
