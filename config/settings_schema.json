@@ -1,11 +1,12 @@
 [
   {
-    "name": "Fresh Fork",
+    "name": "theme_info",
     "theme_name": "Healthy Meals",
     "theme_version": "1.0.0",
     "theme_author": "Superuser762",
     "theme_documentation_url": "https://github.com/superuser762/Fresh-fork/tree/main/healthy-meals-theme",
-    "theme_support_url": "https://github.com/superuser762/Fresh-fork/tree/main/healthy-meals-theme"
+    "theme_support_url": "https://github.com/superuser762/Fresh-fork/tree/main/healthy-meals-theme",
+    "settings": []
   },
   {
     "name": "Colors",
